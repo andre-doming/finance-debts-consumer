@@ -1,0 +1,46 @@
+# Build
+bin/
+obj/
+
+# Rider / VS Code
+.vscode/
+.idea/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# NuGet
+packages/
+*.nupkg
+
+# Secrets
+appsettings.Development.json
+appsettings.Local.json
+
+# Rider / ReSharper
+_ReSharper*/
+*.DotSettings.user
+
+# Test Results
+TestResults/
+
+# Coverage
+coverage/
+*.coverage
+*.coveragexml
+
+# Docker
+docker-compose.override.yml
+
+# Misc
+*.cache
+*.tmp
