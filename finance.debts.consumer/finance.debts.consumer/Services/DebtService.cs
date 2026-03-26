@@ -1,7 +1,4 @@
-﻿using finance.debts.consumer.Domain.Entities;
-using finance.debts.consumer.Domain.Enums;
-using finance.debts.consumer.Domain.Exceptions;
-using finance.debts.consumer.Domain.Interfaces;
+﻿using finance.debts.consumer.Domain.Exceptions;
 
 namespace finance.debts.consumer.Services
 {
@@ -12,7 +9,6 @@ namespace finance.debts.consumer.Services
             if (id <= 0)
                 throw new BusinessException("DebtId inválido");
 
-            // aqui no futuro vai chamar API
             await Task.CompletedTask;
         }
     }

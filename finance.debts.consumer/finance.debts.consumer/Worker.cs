@@ -1,12 +1,10 @@
 ﻿using finance.debts.consumer.Domain.Events;
 using finance.debts.consumer.Domain.Exceptions;
-using finance.debts.consumer.Services;
+using finance.debts.consumer.Infrastructure.Repositories.External;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
-using System.Globalization;
 using System.Text;
 using System.Text.Json;
-using finance.debts.consumer.Services.External;
 
 namespace finance.debts.consumer
 {
@@ -36,7 +34,7 @@ namespace finance.debts.consumer
             var connection = factory.CreateConnection();
             var channel = connection.CreateModel();
 
-            // 🔥 NOVO: CONTROLE DE CONCORRÊNCIA
+            //CONTROLE DE CONCORRÊNCIA
             channel.BasicQos(0, 1, false);
 
             channel.ExchangeDeclare("finance.debts.created", ExchangeType.Fanout, true);
@@ -76,7 +74,6 @@ namespace finance.debts.consumer
 
                     var wrapper = JsonSerializer.Deserialize<DebtCreatedEventWrapper>(json);
 
-                    // 🔥 CORRETO (único bloco de correlationId)
                     var correlationId = wrapper?.correlationId?.ToString();
 
                     if (string.IsNullOrEmpty(correlationId))
@@ -94,9 +91,8 @@ namespace finance.debts.consumer
 
                     var debtId = wrapper.message.debtId;
 
-                    //_logger.LogInformation("📩 DebtId recebido: {DebtId}", debtId);
                     _logger.LogInformation(
-                    "📩 DebtId: {DebtId} | CorrelationId: {CorrelationId}",
+                    "DebtId: {DebtId} | CorrelationId: {CorrelationId}",
                     debtId,
                     correlationId
                     );
@@ -114,7 +110,6 @@ namespace finance.debts.consumer
                         _logger.LogInformation("🔁 Já processado: {DebtId}", debtId);
                     }
 
-                    // ✅ SUCESSO
                     channel.BasicAck(ea.DeliveryTag, false);
                 }
                 catch (TaskCanceledException ex)
@@ -125,7 +120,6 @@ namespace finance.debts.consumer
                 }
                 catch (BusinessException ex)
                 {
-                    // ⚠️ erro de negócio
                     _logger.LogWarning(ex, "⚠️ Regra de negócio");
 
                     PublishToManualQueue(channel, json, ex);
@@ -134,7 +128,6 @@ namespace finance.debts.consumer
                 }
                 catch (Exception ex)
                 {
-                    // 💥 fallback (tratado como erro de negócio)
                     _logger.LogWarning(ex, "⚠️ Erro não mapeado");
 
                     PublishToManualQueue(channel, json, ex);
@@ -176,16 +169,15 @@ namespace finance.debts.consumer
 
             props.Headers["x-retry-count"] = retryCount;
 
-            // 🔥 BACKOFF PROGRESSIVO
             int delay = retryCount switch
             {
-                1 => 5000,   // 5s
-                2 => 15000,  // 15s
-                3 => 30000,  // 30s
+                1 => 5000,
+                2 => 15000,
+                3 => 30000,
                 _ => 5000
             };
 
-            props.Expiration = delay.ToString(); // TTL por mensagem
+            props.Expiration = delay.ToString();
 
             var body = Encoding.UTF8.GetBytes(json);
 
