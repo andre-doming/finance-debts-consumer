@@ -5,7 +5,7 @@ VisualStudioVersion = 17.14.37111.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "finance.debts.consumer", "finance.debts.consumer\finance.debts.consumer.csproj", "{6862950E-A5CD-4B1A-9176-CA455B480931}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "finance.debts.domain", "..\..\finance-debts-domain\finance.debts\finance.debts.domain\finance.debts.domain.csproj", "{E70B1D90-4FF8-83AF-7077-B7DDCA06FC66}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "finance.debts.domain", "..\finance-debts-domain\finance.debts.domain\finance.debts.domain.csproj", "{70CBEADC-2164-8E1D-EAFE-506F07BD17E5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{6862950E-A5CD-4B1A-9176-CA455B480931}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6862950E-A5CD-4B1A-9176-CA455B480931}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6862950E-A5CD-4B1A-9176-CA455B480931}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E70B1D90-4FF8-83AF-7077-B7DDCA06FC66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E70B1D90-4FF8-83AF-7077-B7DDCA06FC66}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E70B1D90-4FF8-83AF-7077-B7DDCA06FC66}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E70B1D90-4FF8-83AF-7077-B7DDCA06FC66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70CBEADC-2164-8E1D-EAFE-506F07BD17E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70CBEADC-2164-8E1D-EAFE-506F07BD17E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70CBEADC-2164-8E1D-EAFE-506F07BD17E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70CBEADC-2164-8E1D-EAFE-506F07BD17E5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

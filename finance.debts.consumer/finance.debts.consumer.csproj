@@ -9,10 +9,12 @@
 
   <ItemGroup>
     <PackageReference Include="Dapper" Version="2.1.72" />
+    <PackageReference Include="MassTransit" Version="8.5.5" />
+    <PackageReference Include="MassTransit.RabbitMQ" Version="8.5.5" />
     <PackageReference Include="Microsoft.Data.SqlClient" Version="7.0.0" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.14" />
     <PackageReference Include="Microsoft.Extensions.Http" Version="10.0.5" />
-    <PackageReference Include="RabbitMQ.Client" Version="6.6.0" />
+    <PackageReference Include="RabbitMQ.Client" Version="7.2.1" />
   </ItemGroup>
 
   <ItemGroup>
@@ -21,6 +23,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\finance-debts-domain\finance.debts\finance.debts.domain\finance.debts.domain.csproj" />
+    <ProjectReference Include="..\..\finance-debts-domain\finance.debts.domain\finance.debts.domain.csproj" />
   </ItemGroup>
 </Project>
