@@ -1,8 +1,8 @@
-﻿using finance.debts.consumer.Domain.Entities;
+﻿using finance.debts.domain.Entities;
 
 namespace finance.debts.consumer.Domain.Interfaces
 {
-    public interface IProcessingLogRepository
+    public interface IProcessingLogRepositoryxx
     {
         Task AddAsync(ProcessingLog log);
     }

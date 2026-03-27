@@ -1,4 +1,4 @@
-﻿namespace finance.debts.consumer.Domain.Exceptions
+﻿namespace finance.debts.consumer.Exceptions
 {
     public class BusinessException : Exception
     {

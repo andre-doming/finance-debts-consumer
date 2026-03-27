@@ -1,6 +1,6 @@
 ﻿namespace finance.debts.consumer.Domain.Entities
 {
-    public class ProcessingLog
+    public class ProcessingLogxx
     {
         public int LogId { get; set; }
         public int DebtId { get; set; }

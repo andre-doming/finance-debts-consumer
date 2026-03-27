@@ -1,4 +1,4 @@
-﻿using finance.debts.consumer.Domain.Exceptions;
+﻿using finance.debts.consumer.Exceptions;
 
 namespace finance.debts.consumer.Services
 {

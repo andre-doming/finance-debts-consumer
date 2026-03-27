@@ -1,8 +1,8 @@
-﻿using finance.debts.consumer.Domain.Enums;
+﻿using finance.debts.domain.Enums;
 
 namespace finance.debts.consumer.Domain.Entities
 {
-    public class Debt
+    public class Debtxx
     {
         public bool IsProcessed => StatusId == ProcessingStatus.Processed;
 

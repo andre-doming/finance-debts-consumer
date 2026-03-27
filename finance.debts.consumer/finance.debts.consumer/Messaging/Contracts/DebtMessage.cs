@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace finance.debts.consumer.Domain.Events
+namespace finance.debts.consumer.Messaging.Contracts
 {
     public class DebtMessage
     {

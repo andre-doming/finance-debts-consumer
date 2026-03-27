@@ -1,10 +1,10 @@
-﻿using finance.debts.consumer.Domain.Events;
-using finance.debts.consumer.Domain.Exceptions;
-using finance.debts.consumer.Infrastructure.Repositories.External;
+﻿using System.Text;
+using System.Text.Json;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
-using System.Text;
-using System.Text.Json;
+using finance.debts.consumer.Exceptions;
+using finance.debts.consumer.Messaging.Contracts;
+using finance.debts.consumer.Infrastructure.Repositories.External;
 
 namespace finance.debts.consumer
 {

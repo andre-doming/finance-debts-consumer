@@ -1,4 +1,4 @@
-﻿namespace finance.debts.consumer.Domain.Events
+﻿namespace finance.debts.consumer.Messaging.Contracts
 {
     public class DebtCreatedEventWrapper
     {
